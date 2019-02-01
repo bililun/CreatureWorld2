@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface Interactive {
-    public void interact(CreatureWorldThing[] things);
+    public void interact(ArrayList<CreatureWorldThing> things);
 }

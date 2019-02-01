@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public class Thing3 extends CreatureWorldThing {
     private int myColor;
 
     public Thing3(int _id){
-        super(_id, CreatureWorldApp.getApp().width/4, CreatureWorldApp.getApp().height/4);
+        super(_id, CreatureWorldMain.getApp().width/4, CreatureWorldMain.getApp().height/4);
 
         myColor = app.color(0, 0, 255);
     }
 
-    public void update(CreatureWorldThing[] things){
+    public void update(ArrayList<CreatureWorldThing> things){
         display();
     }
 

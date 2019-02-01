@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public abstract class CreatureWorldThing {
     private int id;
     private int x;
     private int y;
-    protected final CreatureWorldApp app = CreatureWorldApp.getApp();
+    protected final CreatureWorldMain app = CreatureWorldMain.getApp();
 
     public CreatureWorldThing(int _id, int _x, int _y){
         id = _id;
@@ -30,7 +32,7 @@ public abstract class CreatureWorldThing {
         y = _y;
     }
 
-    public abstract void update(CreatureWorldThing[] things);
+    public abstract void update(ArrayList<CreatureWorldThing> things);
 
     protected abstract void display();
 }

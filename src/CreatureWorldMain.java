@@ -1,10 +1,12 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 // Starter project for practicing use of abstract classes and interfaces.
 
 public class CreatureWorldMain extends PApplet {
     private static CreatureWorldMain app;
-    private CreatureWorldThing[] things;
+    private ArrayList<CreatureWorldThing> things;
 
     public static void main(String[] args) {
         PApplet.main("CreatureWorldMain");
@@ -19,16 +21,27 @@ public class CreatureWorldMain extends PApplet {
     }
 
     public void setup(){
-        things = new CreatureWorldThing[3];
-        things[0] = new Thing1(0);
-        things[1] = new Thing2(1);
-        things[2] = new Thing3(2);
+        things = new ArrayList<CreatureWorldThing>(3);
+        things.add(new Thing1(0));
+        things.add(new Thing2(1));
+        things.add(new Thing3(2));
     }
 
     public void draw(){
         background(255);
-        for (int i = 0; i < things.length; i++){
-            things[i].update(things);
+        for (CreatureWorldThing t : things){
+           t.update(things);
+        }
+    }
+
+    public void mousePressed() {
+        float r = random(1);
+        if (r < 0.1) {
+            things.add(new Thing1(things.size()));
+        } else if (r < 0.75) {
+            things.add(new Thing2(things.size()));
+        } else {
+            things.add(new Thing3(things.size()));
         }
     }
 

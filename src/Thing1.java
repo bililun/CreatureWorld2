@@ -1,16 +1,18 @@
+import java.util.ArrayList;
+
 public class Thing1 extends CreatureWorldThing implements Moveable {
     private int myColor;
     private int direction;
 
 
     public Thing1(int _id){
-        super(_id, CreatureWorldApp.getApp().width/2 + 150, CreatureWorldApp.getApp().height/2);
+        super(_id, CreatureWorldMain.getApp().width/2 + 150, CreatureWorldMain.getApp().height/2);
 
         myColor = app.color(255, 0, 0);
         direction = 1;
     }
 
-    public void update(CreatureWorldThing[] things){
+    public void update(ArrayList<CreatureWorldThing> things){
         display();
         behave();
     }
